@@ -1,5 +1,5 @@
 site_name: li-xiao的个人网站
-site_url: https://melodylx666.github.io/self-website
+site_url: https://melodylx666.github.io/lx-bigdata
 site_author: li-xiao
 site_description: li-xiao的个人网站
 
@@ -66,8 +66,8 @@ edit_uri: edit/main/docs/
 # [top-right corner]
 # [添加 GitHub 仓库]
 # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/
-repo_url: https://github.com/melodylx666/self-website
-repo_name: self-website
+repo_url: https://github.com/melodylx666/lx-bigdata
+repo_name: lx-bigdata
 # [bottom-left corner]
 # [版权说明]
 # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#copyright-notice
