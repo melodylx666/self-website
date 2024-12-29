@@ -2,7 +2,13 @@ site_name: li-xiao的个人网站
 site_url: https://melodylx666.github.io/lx-bigdata
 site_author: li-xiao
 site_description: li-xiao的个人网站
-
+# [Navigtion]
+nav:
+  - Home: index.md
+  - 考试:
+      - TEST/index.md
+      - TEST/javaweb.md
+      
 # [UI]
 # [top]
 theme:
