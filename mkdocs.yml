@@ -11,7 +11,11 @@ nav:
       - TEST/数字图像处理.md
       - TEST/blockchain.md
       - TEST/软件工程.md
-
+  - 风控项目:
+      - Project/index.md
+      - Project/dynamic-Cep.md
+      - Project/econ-rule-engine.md
+      - Project/AbstractStreamOperatorDesign.md
 # [UI]
 # [top]
 theme:
