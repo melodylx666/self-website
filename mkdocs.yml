@@ -140,7 +140,7 @@ markdown_extensions:
 extra_javascript:
   # [数学公式支持]
   # https://squidfunk.github.io/mkdocs-material/reference/math/#katex
-  - docs/javascripts/katex.js
+  - javascripts/katex.js
 #  - https://unpkg.com/katex@0/dist/katex.min.js
 #  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
