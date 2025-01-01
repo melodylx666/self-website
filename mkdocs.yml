@@ -16,6 +16,10 @@ nav:
       - Project/dynamic-Cep.md
       - Project/econ-rule-engine.md
       - Project/AbstractStreamOperatorDesign.md
+  - 语言基础:
+      - LANG/index.md
+      - LANG/JUC-SUC.md
+      - LANG/DS-leetcode.md
 # [UI]
 # [top]
 theme:
