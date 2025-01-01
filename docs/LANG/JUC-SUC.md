@@ -1,4 +1,6 @@
-# JUC
+# JUC-SUC
+
+> 部分目录缺失
 
 ## 并发简介
 
@@ -2847,20 +2849,3 @@ class CountdownActor extends Actor {
 ```
 
 当为复杂角色建模时，将它们视为状态机（statemachine）是比较合适的。
-
-
-# 虚拟线程性能测试：
-
-未改进之前
-
-![](http://www.kdocs.cn/api/v3/office/copy/aWVRVG9GWm52TW5kU0NOeERGTjZRZ2NQOHJiQll0SmsxYm5iL2FITmRRdWhHaXBuWVZNT0lPNTdzNU5ZR1Zxcm9xQXNiUmpCOFZZdm5TVHJEWHRRVmhhZUptbWJKZ3BxV1UyRkJJcHZPWXJSbEZiUHBoMUZzdlpFZUhnazZtcHFadmYwQ0xxdWZFOEZtdnNlcllndHROajd4b1FMNWp0cmhSdGNaZ2ZIZ2JxUk5wajBMMkJTK0tWZDlxUWFFSml5QmJCemxNakpJaDdXZlZzeUpka3FXMFc5YkVXQUxaR3Y2YXQ4bTBvSGVDeWsxMSt0Q0xjL2NMVllWRVlLY0hUUm04azZSRmFlV1BVPQ==/attach/object/A4SC7NY4ABQB4?)
-
-改进之后
-
-1. Flinalizer 76-86行，修改
-
-修改的结果
-
-![](http://www.kdocs.cn/api/v3/office/copy/aWVRVG9GWm52TW5kU0NOeERGTjZRZ2NQOHJiQll0SmsxYm5iL2FITmRRdWhHaXBuWVZNT0lPNTdzNU5ZR1Zxcm9xQXNiUmpCOFZZdm5TVHJEWHRRVmhhZUptbWJKZ3BxV1UyRkJJcHZPWXJSbEZiUHBoMUZzdlpFZUhnazZtcHFadmYwQ0xxdWZFOEZtdnNlcllndHROajd4b1FMNWp0cmhSdGNaZ2ZIZ2JxUk5wajBMMkJTK0tWZDlxUWFFSml5QmJCemxNakpJaDdXZlZzeUpka3FXMFc5YkVXQUxaR3Y2YXQ4bTBvSGVDeWsxMSt0Q0xjL2NMVllWRVlLY0hUUm04azZSRmFlV1BVPQ==/attach/object/XYBCZNY4ACACQ?)
-
-性能基本没有波动

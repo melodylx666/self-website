@@ -1,5 +1,7 @@
 # Java集合方法总结
 
+> 部分目录缺失
+
 ![image.png](assets/ds-collection.png)
 
 ## 工具类：
@@ -524,7 +526,7 @@ class Solution {
         int l = 1, r = 0;
         for(int pile : piles){
             r = Math.max(r,pile);
-        }     
+        }   
         int ans = Integer.MIN_VALUE;
         while(l<=r){
             int mid = l + (r-l)/2;
@@ -1593,7 +1595,7 @@ class Solution {
     private int MAXN = 2001;
     public List<List<Integer>> levelOrder(TreeNode root) {
         if(root == null) return new ArrayList<>();
-      
+    
         TreeNode[] que = new TreeNode[MAXN];
         int l=0,r=0;
         que[r++] = root;
@@ -1645,7 +1647,7 @@ class Solution {
         if(root.left == null && root.right == null){
             return 1;  
         }
-      
+    
         int ldeep = Integer.MAX_VALUE;
         int rdeep = Integer.MAX_VALUE;
 
@@ -1654,7 +1656,7 @@ class Solution {
 
         return Math.min(ldeep,rdeep)+1;
 
-      
+    
     }
 }
 ```
@@ -1702,7 +1704,7 @@ public class Codec {
         head.right = decode(vals);
 
         return head;
-      
+    
     }
 }
 ```
@@ -1834,7 +1836,7 @@ class Solution {
             }
             return;
         }
-      
+    
         if(cur.left != null) {
             path.add(cur.val);
             traverse(cur.left,curSum+cur.val,targetSum);
@@ -2137,7 +2139,7 @@ public class Solution {
     //使用双指针法排序
     public static void merge(int[] arr, int l, int m, int r) {
         int i = l;
-      
+    
         int a = l;
         int b = m + 1;
         //当两边都没有遍历完的时候
@@ -2627,7 +2629,7 @@ PriorityQueue<ListNode> heap = new PriorityQueue<>(new Comparator<ListNode>() {
 
 public int compare(ListNode o1, ListNode o2) {
 
-  return o1.val - o2.val;
+return o1.val - o2.val;
 }
 
 });
@@ -2705,6 +2707,7 @@ public static void main(String[] args) {
         System.out.println(map3.get(s2));
     }
 ```
+
 ### 比较器
 
 Java中的实现对象排序由两种方式：自然排序和定制排序
@@ -2716,6 +2719,7 @@ public interface Comparable{
  int compareTo(Object obj);
 }
 ```
+
 1. 全类名：java.lang.Comparable(接口)
 2. 使用方法：实现接口中的int compareTo(Object obj)方法.若this>that则返回值为正。
 3. 定制排序：
@@ -2725,6 +2729,7 @@ public interface Comparator{
  int compare(Object o1,Object o2);
 }
 ```
+
 1. 背景：如果需要比较的类没有实现Comparable接口，并且无法改变。或者不想按照Comparable的compareTo()的实现进行排序。
 2. 解决办法：通过使用Comparator接口进行定制排序
 3. 使用方法：重写compare方法进行比较。如果o1>o2，则返回值为正。
@@ -2814,6 +2819,7 @@ class Trie {
     }
 }
 ```
+
 ```
 class Trie{
   private case class TreeNode (
@@ -2861,6 +2867,7 @@ class Trie{
   }
 }
 ```
+
 1. 使用静态数组的方式实现。一次性开足足够的空间
    1. 假设树一共会开m个节点(m>实际节点数)，每个节点下有n个选择。则int[][] tree = new int[m][n];
    2. pass,end信息分别使用一维的数组；
@@ -2926,6 +2933,7 @@ class Trie{
         return pass[cur];
     }
 ```
+
 ### 例题
 
 1. [数组中两个数的最大异或值](https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/)
@@ -2998,6 +3006,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode 14最长公共前缀
 
 ```
@@ -3072,6 +3081,7 @@ class Solution {
     }
 }
 ```
+
 ## KMP算法
 
 ### 概念
@@ -3182,6 +3192,7 @@ class Solution {
     }
 }
 ```
+
 ### 简化版本
 
 1. 前缀函数π
@@ -3252,6 +3263,7 @@ public static int minSubArrayLen(int target, int[] nums) {
     return ans == Integer.MAX_VALUE ? 0 : ans;
 }
 ```
+
 1. [无重复字符的最长字串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
    1. 思路：对于以每个位置结束的子串，调整滑动窗口的大小，使得窗口中的字符始终保持要求的性质，也就是无重复性
    2. 核心的更新公式：
@@ -3267,7 +3279,7 @@ class Solution {
         //每种字符出现的位置，将字符转换为0-255的整数
         int[] last = new int[256];
         Arrays.fill(last,-1);
-      
+    
         for(int l=0, r=0; r<arr.length; r++){
             l = Math.max(l, last[(int)arr[r]]+1);
             ans = Math.max(ans, r-l+1);
@@ -3277,6 +3289,7 @@ class Solution {
     }
 }
 ```
+
 1. [最小覆盖字串](https://leetcode.cn/problems/minimum-window-substring/)
    1. 题目含义：给你一个字符串 `<span>s</span>` 、一个字符串 `<span>t</span>` 。返回 `<span>s</span>` 中涵盖 `<span>t</span>` 所有字符的最小子串。如果 `<span>s</span>` 中不存在涵盖 `<span>t</span>` 所有字符的子串，则返回空字符串 `<span>""</span>`
    2. 核心思路：使用滑动窗口。对于以每个位置结束的子串，在滑动窗口中检查是否满足覆盖的性质。如果满足，则尝试调整大小，最终得到最小字串。
@@ -3317,6 +3330,7 @@ class Solution {
 
 }
 ```
+
 1. [加油站的出发点](https://leetcode.cn/problems/gas-station/)
 
 ```
@@ -3335,12 +3349,13 @@ class Solution {
             }
             len--;
             sum -= gas[l] - cost[l];
-          
+        
         }
         return -1;
     }
 }
 ```
+
 1. leetcode1984 数组中的k个元素的最小极差：
    1. 结论：如果要求任意k个元素的最小极差，需要进行排序，然后使用相邻的k个元素一组，使用滑动窗口进行遍历，窗口中元素的极差是nums[r]-nums[l]。
 
@@ -3360,6 +3375,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode1652 拆炸弹：
    1. 你有一个炸弹需要拆除，时间紧迫！你的情报员会给你一个长度为 `<span class="color_font"><span>n</span></span>` 的 **循环** 数组 `<span class="color_font"><span>code</span></span>` 以及一个密钥 `<span class="color_font"><span>k</span></span>` 。
 
@@ -3398,6 +3414,7 @@ class Solution {
     }
 }
 ```
+
 ## 单调栈
 
 ### 原理
@@ -3455,6 +3472,7 @@ public static void compute() {
             }
         }
 ```
+
 1. [每日温度](https://leetcode.cn/problems/daily-temperatures/)
    1. 给定一个整数数组 `<span>temperatures</span>` ，表示每天的温度，返回一个数组 `<span>answer</span>` ，其中 `<span>answer[i]</span>` 是指对于第 `<span>i</span>` 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 `<span>0</span>` 来代替。
 
@@ -3474,6 +3492,7 @@ public static int[] dailyTemperatures(int[] nums) {
         return ans;
     }
 ```
+
 1. 子数组的最小值之和
    1. 给定一个整数数组 `<span class="color_font"><span>arr</span></span>`，找到 `<span class="color_font"><span>min(b)</span></span>` 的总和，其中 `<span class="color_font"><span>b</span></span>` 的范围为 `<span class="color_font"><span>arr</span></span>` 的每个（连续）子数组。
 
@@ -3537,6 +3556,7 @@ class Solution {
     }
 }
 ```
+
 ## 并查集
 
 原理：
@@ -3583,7 +3603,7 @@ class Solution {
 
     }
     public static void build(int n) {
-     
+   
         for (int i = 0; i < n; i++) {
             father[i] = i;
             size[i] = 1;
@@ -3607,6 +3627,7 @@ class Solution {
     }
 }
 ```
+
 例题：
 
 1. 板子题：
@@ -3656,6 +3677,7 @@ object Solution {
   def isSameSet(x: Int, y: Int):Boolean = {find(x) == find(y)}
 }
 ```
+
 ```
 import java.util.Scanner;
 import java.io.*;
@@ -3734,6 +3756,7 @@ public class Main {
     }
 }
 ```
+
 1. leetcode 1971寻找图中是否存在路径
    1. 连通的图在一个集合中，可以被查找到。使用这个性质，进行查找
 
@@ -3752,7 +3775,7 @@ class Solution {
         return find(source) == find(destination);
     }
     public static void build(int n) {
-     
+   
         for (int i = 0; i < n; i++) {
             father[i] = i;
             size[i] = 1;
@@ -3790,6 +3813,7 @@ class Solution {
     }
 }
 ```
+
 ## 图论
 
 ### 建图
@@ -3953,6 +3977,7 @@ public class Code01_CreateGraph {
         }
     }
 ```
+
 ### 拓扑排序
 
 1. 要求：拓扑排序的目标是将所有节点排序，使得排在前面的节点不能依赖于排在后面的节点
@@ -4061,6 +4086,7 @@ class Solution {
     }
 }
 ```
+
 ### 洪水填充
 
 原理：类似于洪水蔓延的过程，用于网格搜索。通过设置路径信息，用于统计或者剪枝。看似暴力递归，其实时间复杂度很好。
@@ -4102,6 +4128,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode  130 被围绕的区域
    1. 思路：先寻找边缘的联通区域，提前标记区别开来。然后可以将中间的闭合区域进行修改，最后将边缘区域恢复即可。
    2. 时间复杂度O(m\*n)
@@ -4142,6 +4169,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode 827：最大人工岛
 
 给你一个大小为 `<span class="color_font"><span>n x n</span></span>` 二进制矩阵 `<span class="color_font"><span>grid</span></span>` 。**最多** 只能将一格 `<span class="color_font"><span>0</span></span>` 变成 `<span class="color_font"><span>1</span></span>` 。
@@ -4225,6 +4253,7 @@ class Solution {
     }
 }
 ```
+
 ### 最小生成树
 
 1. 定义：
@@ -4318,6 +4347,7 @@ class Solution {
     }
 }
 ```
+
 ### BFS及其扩展
 
 1. 理论：
@@ -4395,6 +4425,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode200
    1. 每个节点进行处理的模板题：
 
@@ -4436,11 +4467,11 @@ class Solution {
                                 queue[r][0] = nx;
                                 queue[r][1] = ny;
                                 r++;
-                              
+                            
                             }
                         }
                     }
-                  
+                
                 }
             }
         }
@@ -4448,6 +4479,7 @@ class Solution {
     }
 }
 ```
+
 1. 01BFS，也就是双端队列BFS
    1. 适用范围：边的权重只有0和1，求解最短距离
    2. 不能使用传统BFS，因为进行传统的BFS之后，进行下一层扩展之后，需要距离增加，而不是两个节点还是在同一层。
@@ -4511,6 +4543,7 @@ class Solution {
     }
 }
 ```
+
 1. 变形题：leetcode1368
 
 因为每一个格子都有方向，并且可以用cost 1改方向.则假设该点原本指向的cost=0,其余三个方向都是cost=1。要求cost之和最小，就是计算最短路。所以转换为0-1BFS
@@ -4593,6 +4626,7 @@ class Solution {
     }
 }
 ```
+
 ```
 //scala模板
 object Solution {
@@ -4626,6 +4660,7 @@ object Solution {
   }
 }
 ```
+
 ### A\*算法
 
 1. 不同点：
@@ -4683,6 +4718,7 @@ public class Code02_Floyd {
     }
 }
 ```
+
 ## 动态规划
 
 ### 一维动态规划
@@ -4712,6 +4748,7 @@ class Solution {
     }
 }
 ```
+
 1. 记忆化搜索解法：
    1. 求F(n)，则准备0-n项的缓存表就可以，长度为n+1.
    2. 每次计算的结果存入缓存表中。
@@ -4738,6 +4775,7 @@ class Solution {
     }
 }
 ```
+
 1. 动态规划：
    1. 从顶到底，是递归
    2. 从底到顶，变为动态规划
@@ -4759,6 +4797,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode983最低票价
 
 在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为 `<span class="color_font"><span>days</span></span>` 的数组给出。每一项是一个从 `<span class="color_font"><span>1</span></span>` 到 `<span class="color_font"><span>365</span></span>` 的整数。
@@ -4842,6 +4881,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode91解码方法：
    1. 思路：以11106为例子。1开头划分，以及11开头划分，然后递归。递归终止结果是以最后一个字符开头必然只有1种方式。
    2. 对于变形题的解码方法，要注意\*的讨论，也就是(a,b),(a,\*),(\*,b),(\*,\*)
@@ -4901,6 +4941,7 @@ class Solution {
     }
 }
 ```
+
 1. 丑数问题：
    1. 给你一个整数 `<span class="color_font"><span>n</span></span>` ，请你找出并返回第 `<span class="color_font"><span>n</span></span>` 个 **丑数** 。
 
@@ -4945,6 +4986,7 @@ class Solution {
         return dp[n];
     }
 ```
+
 1. 有效括号：
    1. 给你一个只包含 `<span class="color_font"><span>'('</span></span>` 和 `<span class="color_font"><span>')'</span></span>` 的字符串，找出最长有效（格式正确且连续）括号子串的长度。
    2. 思路：
@@ -4994,6 +5036,7 @@ public static int longestValidParentheses(String str) {
         return ans;
     }
 ```
+
 ### 二维动态规划
 
 1. 能改成动态规划的递归，一般是参数比较简单，一般不会比int更复杂。带路径的递归就不可以改为动态规划。
@@ -5023,6 +5066,7 @@ public static int longestValidParentheses(String str) {
         }
         return dp[n - 1][m - 1];
 ```
+
 1. 带路径的不可以改动态规划的递归：
    1. leetcode49
       1. 路径部分体现为递归过程中修改了board的状态来防止重复。
@@ -5078,6 +5122,7 @@ class Solution {
     }
 }
 ```
+
 1. LCS问题：
    1. 给定两个字符串 `<span class="color_font"><span>text1</span></span>` 和 `<span class="color_font"><span>text2</span></span>`，返回这两个字符串的最长 **公共子序列** 的长度。如果不存在 **公共子序列** ，返回 `<span class="color_font"><span>0</span></span>` 。
 
@@ -5118,6 +5163,7 @@ class Solution {
     }
 }
 ```
+
 1. 变形：最长回文子序列：
    1. 思路一：可以通过LCR问题通过str以及逆序的str求最小公共子序列来求出答案。
    2. 思路二：对于一个数组，通过使用区间dp进行求解
@@ -5158,6 +5204,7 @@ class Solution {
     }
 }
 ```
+
 1. leetcode 3145 到达第k个台阶的方案数
    1. 思路：常规记忆化搜索，注意使用将稀疏数据映射为自增id缩小空间。
 
@@ -5187,6 +5234,7 @@ class Solution {
     }
 }
 ```
+
 ### 子数组累加和与扩展专题
 
 1. 子数组累加和问题(MSA)：
@@ -5243,6 +5291,7 @@ class Solution {
         }
     }
 ```
+
 1. 抢劫问题：
    1. 不能打劫相邻的两家
    2. 思路：同样是从n-1开头开始枚举。dp[i]就是只能在[i-n-1]范围任意选数字，但是不能连续。
@@ -5267,6 +5316,7 @@ class Solution {
     }
 }
 ```
+
 1. 环形数组的最大子数组累加和
    1. 思路：考虑可能性：
       1. 子数组没有越界，就是正常的maxSubArray
@@ -5311,6 +5361,7 @@ class Solution {
     }
 }
 ```
+
 1. 环形数组抢劫：
    1. 思路：影响因素就是nums[0]和nums[n-1]
       1. 只要0
@@ -5350,6 +5401,7 @@ class Solution {
     }
 }
 ```
+
 1. 最大子矩阵：
    1. 求子矩阵中元素和最大的矩阵的对角位置
    2. 思路：
@@ -5397,15 +5449,16 @@ class Solution {
     }
 }
 ```
+
 1. 乘积最大子数组
    1. 每一步都需要维护i-1结尾的时候的min和max，因为存在负数，所以维护每一步的max[i]和min[i]。也就是相乘的时候，假设负号在dp[i]上，则最大值可能变为最小值，最小值可能变为最大值。
    2. 每一步：
 
 int a = nums[i]\*max[i-1];
 
-        int b = nums[i]\*min[i-1];
+    int b = nums[i]\*min[i-1];
 
-        int c = nums[i];
+    int c = nums[i];
 1. 求a,b,c的最大值和最小值来求出当前的max[i]和min[i]
 
 ```
@@ -5469,7 +5522,7 @@ class Solution {
         int[] sums = getSum(nums, k);
         int[] prefix = new int[n];
         int[] suffix = new int[n];
-      
+    
         prefix[k-1] = 0;
         for(int r=k;r<n;r++){
             int cur = r-k+1;
@@ -5738,7 +5791,7 @@ class Main{
         }
         ans += compute();
         System.out.println(ans);
-      
+    
     }
     //[0,1背包]
     public static long compute() {
@@ -6184,7 +6237,7 @@ class Solution {
             max = a;
             min = b;
             isBst = c;
-            //以x节点为根节点的树中包含的最大BST子树          
+            //以x节点为根节点的树中包含的最大BST子树        
             maxBstSize = d;
         }
     }
@@ -6339,7 +6392,7 @@ class Main {
         build();
         while (in.nextToken() != StreamTokenizer.TT_EOF) {
             N = (int)in.nval;
-            for(int i=0, op=0; i<N;i++){              
+            for(int i=0, op=0; i<N;i++){            
                 in.nextToken();op = (int)in.nval;
                 if(op == 1){
                     in.nextToken();int x = (int)in.nval;
