@@ -1,14 +1,14 @@
-# Java集合方法总结
+# 数据结构与算法
 
 > 部分目录缺失
 
 ![image.png](assets/ds-collection.png)
 
-## 工具类：
+### 工具类：
 
 全部都是静态方法
 
-### Arrays：
+#### Arrays：
 
 1. 数组元素拼接：
 
@@ -26,7 +26,7 @@
 12. static void fill(Object[] a,Object val)：将所有位置设置为val
 13. static void fill(Object[] a, int fromIndex, int toIndex, Object val) ：[from,to)位置设置为val
 
-### Collections：
+#### Collections：
 
 1. 排序操作：
 
@@ -40,11 +40,11 @@
 5. 添加：
 6. boolean addAll(Collection c,T... elements):将所有指定元素添加到集合中
 
-## 集合框架：
+### 集合框架：
 
 ![image.png](assets/ds-map.png)
 
-### Collection接口：
+#### Collection接口：
 
 #### 接口的方法
 
@@ -135,10 +135,6 @@
 
 ![image.png](assets/o1.png)
 
-# 入门篇
-
-## 三傻排序：
-
 ### 选择排序：
 
 i\~n-1范围上，找到最小值并放在i位置，然后i+1\~n-1范围上继续
@@ -199,7 +195,6 @@ i\~n-1范围上，找到最小值并放在i位置，然后i+1\~n-1范围上继�
     }
 ```
 
-## 随机快排和快选
 
 ### 快速排序
 
@@ -1595,7 +1590,7 @@ class Solution {
     private int MAXN = 2001;
     public List<List<Integer>> levelOrder(TreeNode root) {
         if(root == null) return new ArrayList<>();
-    
+  
         TreeNode[] que = new TreeNode[MAXN];
         int l=0,r=0;
         que[r++] = root;
@@ -1647,7 +1642,7 @@ class Solution {
         if(root.left == null && root.right == null){
             return 1;  
         }
-    
+  
         int ldeep = Integer.MAX_VALUE;
         int rdeep = Integer.MAX_VALUE;
 
@@ -1656,7 +1651,7 @@ class Solution {
 
         return Math.min(ldeep,rdeep)+1;
 
-    
+  
     }
 }
 ```
@@ -1704,7 +1699,7 @@ public class Codec {
         head.right = decode(vals);
 
         return head;
-    
+  
     }
 }
 ```
@@ -1836,7 +1831,7 @@ class Solution {
             }
             return;
         }
-    
+  
         if(cur.left != null) {
             path.add(cur.val);
             traverse(cur.left,curSum+cur.val,targetSum);
@@ -2139,7 +2134,7 @@ public class Solution {
     //使用双指针法排序
     public static void merge(int[] arr, int l, int m, int r) {
         int i = l;
-    
+  
         int a = l;
         int b = m + 1;
         //当两边都没有遍历完的时候
@@ -3279,7 +3274,7 @@ class Solution {
         //每种字符出现的位置，将字符转换为0-255的整数
         int[] last = new int[256];
         Arrays.fill(last,-1);
-    
+  
         for(int l=0, r=0; r<arr.length; r++){
             l = Math.max(l, last[(int)arr[r]]+1);
             ans = Math.max(ans, r-l+1);
@@ -3349,7 +3344,7 @@ class Solution {
             }
             len--;
             sum -= gas[l] - cost[l];
-        
+      
         }
         return -1;
     }
@@ -4467,11 +4462,11 @@ class Solution {
                                 queue[r][0] = nx;
                                 queue[r][1] = ny;
                                 r++;
-                            
+                          
                             }
                         }
                     }
-                
+              
                 }
             }
         }
@@ -5456,9 +5451,9 @@ class Solution {
 
 int a = nums[i]\*max[i-1];
 
-    int b = nums[i]\*min[i-1];
+int b = nums[i]\*min[i-1];
 
-    int c = nums[i];
+int c = nums[i];
 1. 求a,b,c的最大值和最小值来求出当前的max[i]和min[i]
 
 ```
@@ -5522,7 +5517,7 @@ class Solution {
         int[] sums = getSum(nums, k);
         int[] prefix = new int[n];
         int[] suffix = new int[n];
-    
+  
         prefix[k-1] = 0;
         for(int r=k;r<n;r++){
             int cur = r-k+1;
@@ -5791,7 +5786,7 @@ class Main{
         }
         ans += compute();
         System.out.println(ans);
-    
+  
     }
     //[0,1背包]
     public static long compute() {
@@ -6237,7 +6232,7 @@ class Solution {
             max = a;
             min = b;
             isBst = c;
-            //以x节点为根节点的树中包含的最大BST子树        
+            //以x节点为根节点的树中包含的最大BST子树      
             maxBstSize = d;
         }
     }
@@ -6392,7 +6387,7 @@ class Main {
         build();
         while (in.nextToken() != StreamTokenizer.TT_EOF) {
             N = (int)in.nval;
-            for(int i=0, op=0; i<N;i++){            
+            for(int i=0, op=0; i<N;i++){          
                 in.nextToken();op = (int)in.nval;
                 if(op == 1){
                     in.nextToken();int x = (int)in.nval;
